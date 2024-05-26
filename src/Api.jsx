@@ -21,3 +21,15 @@ export const fetchConfiguration = async () => {
   const response = await axios.get("configuration", options);
   return response.data.images;
 };
+export const fetchMoviesCast = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}/credits`, options);
+  return response.data.cast;
+};
+export const fetchMoviesReview = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}/reviews`, options);
+  return response.data.results;
+};
+export const fetchMovieSearch = async (topic) => {
+  const response = await axios.get(`search/movie?query=${topic}`, options);
+  return response.data.results;
+};
