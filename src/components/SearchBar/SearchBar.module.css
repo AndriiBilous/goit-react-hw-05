@@ -1,0 +1,18 @@
+.input{
+    background-color: #6aa236;
+    padding: 5px;
+    width: 400px;
+}
+.btn{
+    display: flex;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: #9ba197;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    gap: 20px;
+}

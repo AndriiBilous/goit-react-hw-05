@@ -3,6 +3,7 @@ import { fetchMoviesReview } from "..//../Api";
 import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from "./MovieReviews.module.css";
 
 function MovieReviews() {
   const { movieId } = useParams();
@@ -25,25 +26,24 @@ function MovieReviews() {
     }
     fetchReview();
   }, [movieId]);
+
   return (
-    <div>
-      <ul>
-        {loading && <Loader />}
-        {error && <ErrorMessage />}
-        {review.length > 0 ? (
-          review.map(({ author, content, id }) => {
-            return (
-              <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
-              </li>
-            );
-          })
-        ) : (
-          <p>We don't have any reviews for this movie!</p>
-        )}
-      </ul>
-    </div>
+    <ul className={css.container}>
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
+      {review.length > 0 ? (
+        review.map(({ author, content, id }) => {
+          return (
+            <li key={id} className={css.item}>
+              <p>Author: {author}</p>
+              <p>{content}</p>
+            </li>
+          );
+        })
+      ) : (
+        <p>We don't have any reviews for this movie!</p>
+      )}
+    </ul>
   );
 }
 export default MovieReviews;

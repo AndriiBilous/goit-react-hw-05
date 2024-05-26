@@ -1,0 +1,56 @@
+.container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.back{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    border:1px solid black;
+   padding: 5px;
+   width: 100px;
+   background-color: #9ba197;
+   justify-content: center;
+}
+.wrap{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.card{
+display: flex;
+gap: 20px;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+}
+.genres{display: flex;
+gap: 10px;
+}
+.info{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.content{
+    position: relative;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.info::before{
+   content: "";
+    border-top:1px solid black;
+   
+}
+.content::after{
+    position: absolute;
+    width: 100%;
+    top:40px;
+    content: "";
+     border-bottom:1px solid black;
+    
+ }

@@ -1,0 +1,16 @@
+.header{
+    background-color: #54822a;
+    padding: 20px 0px 20px 0px;
+}
+.navigation{
+    margin-left: 20px;
+    display: flex;
+    gap: 10px;
+}
+.link{
+    font-size: 24px;
+    color:black;
+}
+.active{
+    color:#c5d22b;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchTrendingMovies } from "..//../Api";
+import css from "./HomePage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
 import Loader from "..//../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -26,9 +27,9 @@ function HomePage() {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1>Trending today</h1>
+    <div className={css.container}>
+      <div className={css.home}>
+        <h1 className={css.title}>Trending today</h1>
         {loading && <Loader />}
         {error && <ErrorMessage />}
         {movies.length > 0 && <MovieList movies={movies} />}

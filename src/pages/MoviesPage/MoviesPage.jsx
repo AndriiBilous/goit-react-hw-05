@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchMovieSearch } from "..//../Api";
 import MovieList from "..//../components/MovieList/MovieList";
 import { useSearchParams } from "react-router-dom";
+import css from "./MoviesPage.module.css";
 
 function MoviesPage() {
   const [response, setResponse] = useState([]);
@@ -33,15 +34,14 @@ function MoviesPage() {
   }, [query]);
 
   return (
-    <div>
-      <SearchBar onSearch={changeValue} />
-
-      <main>
+    <main className={css.main}>
+      <div className={css.container}>
+        <SearchBar onSearch={changeValue} />
         {response.length > 0 && (
           <MovieList movies={response} loading={loading} error={error} />
         )}
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
 export default MoviesPage;

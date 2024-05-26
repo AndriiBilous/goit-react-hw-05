@@ -4,6 +4,7 @@ import { fetchMoviesCast } from "..//../Api";
 import { fetchConfiguration } from "..//../Api";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from "./MovieCast.module.css";
 
 function MovieCast() {
   const { movieId } = useParams();
@@ -28,6 +29,7 @@ function MovieCast() {
     }
     fetchCast();
   }, [movieId]);
+
   useEffect(() => {
     async function fetchImageDetails() {
       try {
@@ -45,18 +47,28 @@ function MovieCast() {
     fetchImageDetails();
   }, []);
   const { base_url } = configuration;
-
+  console.log(cast);
   return (
-    <ul>
+    <ul className={css.container}>
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {cast &&
         cast.map(({ profile_path, name, character, id }) => {
           return (
-            <li key={id}>
-              <img src={`${base_url}${size[3]}${profile_path}`} />
-              <p>{name}</p>
-              <p>Character: {character}</p>
+            <li key={id} className={css.item}>
+              <img
+                src={
+                  profile_path
+                    ? `${base_url}${size[3]}${profile_path}`
+                    : "http://www.suryalaya.org/images/no_image.jpg"
+                }
+                width="120"
+              />
+
+              <div className={css.text}>
+                <p>{name}</p>
+                <p>Character: {character}</p>
+              </div>
             </li>
           );
         })}
